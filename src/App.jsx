@@ -1,12 +1,14 @@
-import Personal from './components/content/personalDetails/Personal'
+import Education from "./components/content/education/Education";
+import Personal from "./components/content/personalDetails/Personal";
 
-function App () {
-    return (
+function App() {
+  return (
     <>
-        <h1>Hello, World!</h1>
-        <Personal />
+      <h1>Hello, World!</h1>
+      <Personal />
+      <Education />
     </>
-    )
+  );
 }
 
 export default App;
