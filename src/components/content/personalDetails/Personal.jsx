@@ -36,7 +36,7 @@ function Personal() {
         />
       </form>
 
-      <div>
+      <div className="personal-info">
         <NameInfo value={textName} />
         <EmailInfo value={textEmail} />
         <PhoneInfo value={textPhone} />
