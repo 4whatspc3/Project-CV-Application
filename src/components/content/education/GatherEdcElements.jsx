@@ -8,6 +8,14 @@ import {
   LocationInput,
 } from "./inputElements/inputElements";
 
+import {
+  SchoolInfo,
+  DegreeInfo,
+  StartDateInfo,
+  EndDateInfo,
+  LocationInfo,
+} from "./infoElements/infoElements";
+
 function GatherEdcElements() {
   const [textSchool, setTextSchool] = useState("");
   const [textDegree, setTextDegree] = useState("");
@@ -39,6 +47,14 @@ function GatherEdcElements() {
           handleChange={(e) => setTextLocation(e.target.value)}
         />
       </form>
+
+      <div className="education-info">
+        <SchoolInfo value={textSchool} />
+        <DegreeInfo value={textDegree} />
+        <StartDateInfo value={textStart} />
+        <EndDateInfo value={textEnd} />
+        <LocationInfo value={textLocation} />
+      </div>
     </>
   );
 }
