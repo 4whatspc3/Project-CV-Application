@@ -4,11 +4,13 @@ import GatherEdcElements from "./GatherEdcElements";
 function Education() {
   const [value, setValue] = useState(0);
 
-  function handleButtonClick() {
-    if (value === 0) {
-      setValue((previousState) => 1);
-    } else {
-      setValue((previousState) => 0);
+  function handleButtonClick(e) {
+    {
+      e.target.className === "information"
+        ? value === 0
+          ? setValue((previousState) => 1)
+          : setValue((previousState) => 0)
+        : null;
     }
   }
 
@@ -24,7 +26,9 @@ function Education() {
     <>
       <h2>Education</h2>
       <div>
-        <button onClick={handleButtonClick}>Add Information</button>
+        <button className="information" onClick={handleButtonClick}>
+          Add Information
+        </button>
       </div>
       <div>{getInputs(value)}</div>
     </>
