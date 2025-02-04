@@ -16,20 +16,19 @@ import {
   LocationInfo,
 } from "./infoElements/infoElements";
 
-const arr = [];
-
 function GatherEdcElements() {
+  const [educationArray, setEducationArray] = useState([]);
   const [textSchool, setTextSchool] = useState("");
   const [textDegree, setTextDegree] = useState("");
   const [textStart, setTextStart] = useState("");
   const [textEnd, setTextEnd] = useState("");
   const [textLocation, setTextLocation] = useState("");
-  const [arrEducation, setArrEducation] = useState(arr);
 
-  function handleSubmit(e) {
+  function saveEducation(e) {
     e.preventDefault();
 
     const obj = {
+      id: crypto.randomUUID(),
       school: textSchool,
       degree: textDegree,
       start: textStart,
@@ -37,18 +36,20 @@ function GatherEdcElements() {
       location: textLocation,
     };
 
-    setTextSchool((prev) => "");
-    setTextDegree((prev) => "");
-    setTextStart((prev) => "");
-    setTextEnd((prev) => "");
-    setTextLocation((prev) => "");
+    if (textSchool.trim() !== "") {
+      setEducationArray((edc) => [...edc, obj]);
 
-    return setArrEducation((arrEducation) => arr.push(obj));
+      setTextSchool("");
+      setTextDegree("");
+      setTextStart("");
+      setTextEnd("");
+      setTextLocation("");
+    }
   }
 
   return (
     <>
-      <form className="education-form" onSubmit={handleSubmit}>
+      <form className="education-form">
         <SchoolInput
           value={textSchool}
           handleChange={(e) => setTextSchool(e.target.value)}
@@ -69,29 +70,35 @@ function GatherEdcElements() {
           value={textLocation}
           handleChange={(e) => setTextLocation(e.target.value)}
         />
-
         <div>
-          <button className="Delete">Delete</button>
-        </div>
-        <div>
-          <button className="Cancel">Cancel</button>
-        </div>
-        <div>
-          <button type="submit" className="Save">
+          <button className="Save" onClick={saveEducation}>
             Save
           </button>
         </div>
       </form>
 
       <div className="education-info">
-        <SchoolInfo value={textSchool} />
-        <DegreeInfo value={textDegree} />
-        <StartDateInfo value={textStart} />
-        <EndDateInfo value={textEnd} />
-        <LocationInfo value={textLocation} />
+        <h2>Education</h2>
+        {educationArray.map((edc) => (
+          <ol key={edc.id}>
+            <li>
+              <span className="text">{edc.school}</span>
+            </li>
+            <li>
+              <span className="text">{edc.degree}</span>
+            </li>
+            <li>
+              <span className="text">{edc.start}</span>
+            </li>
+            <li>
+              <span className="text">{edc.end}</span>
+            </li>
+            <li>
+              <span className="text">{edc.location}</span>
+            </li>
+          </ol>
+        ))}
       </div>
-
-      {console.log(arrEducation)}
     </>
   );
 }
