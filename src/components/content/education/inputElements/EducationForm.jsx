@@ -8,7 +8,7 @@ import {
   LocationInput,
 } from "./inputElements";
 
-function EducationForm({ onSave }) {
+function EducationForm({ onSave, changeValue }) {
   const [textSchool, setTextSchool] = useState("");
   const [textDegree, setTextDegree] = useState("");
   const [textStart, setTextStart] = useState("");
@@ -61,6 +61,12 @@ function EducationForm({ onSave }) {
       <div>
         <button className="Save" onClick={handleSave}>
           Save
+        </button>
+      </div>
+
+      <div>
+        <button className="cancel" onClick={changeValue}>
+          Cancel
         </button>
       </div>
     </form>

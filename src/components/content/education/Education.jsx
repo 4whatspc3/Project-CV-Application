@@ -14,7 +14,9 @@ function Education() {
 
   function displayInputs(value) {
     if (value === 1) {
-      return <EducationForm onSave={handleSave} />;
+      return (
+        <EducationForm onSave={handleSave} changeValue={handleButtonClick} />
+      );
     } else {
       return null;
     }
