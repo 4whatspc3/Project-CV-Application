@@ -1,8 +1,10 @@
 import { useState } from "react";
-import GatherEdcElements from "./GatherEdcElements";
+import EducationForm from "./inputElements/EducationForm";
+import EducationList from "./infoElements/EducationList";
 
 function Education() {
   const [value, setValue] = useState(0);
+  const [educationArray, setEducationArray] = useState([]);
 
   function handleButtonClick() {
     value === 0
@@ -10,12 +12,16 @@ function Education() {
       : setValue((previousState) => 0);
   }
 
-  function getInputs(value) {
+  function displayInputs(value) {
     if (value === 1) {
-      return <GatherEdcElements />;
+      return <EducationForm onSave={handleSave} />;
     } else {
       return null;
     }
+  }
+
+  function handleSave(newEducation) {
+    setEducationArray((prev) => [...prev, newEducation]);
   }
 
   return (
@@ -26,7 +32,8 @@ function Education() {
           Add Information
         </button>
       </div>
-      <div>{getInputs(value)}</div>
+      {displayInputs(value)}
+      <EducationList educationArray={educationArray} />
     </>
   );
 }
