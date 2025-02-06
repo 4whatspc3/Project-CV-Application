@@ -5,6 +5,7 @@ import EducationCard from "./infoElements/EducationCard";
 
 function Education() {
   const [value, setValue] = useState(0);
+  const [allowEdit, setAllowEdit] = useState(false);
   const [educationArray, setEducationArray] = useState([]);
 
   function handleButtonClick() {
@@ -27,6 +28,12 @@ function Education() {
     setEducationArray((prev) => [...prev, newEducation]);
   }
 
+  function changeValueOfEdit() {
+    allowEdit === false
+      ? setAllowEdit((previousState) => true)
+      : setAllowEdit((previousState) => false);
+  }
+
   function deleteSave(objOfId) {
     const updatedEdcArr = educationArray.filter(
       (objSaved) => objSaved.id !== objOfId
@@ -44,7 +51,12 @@ function Education() {
       </div>
       {displayInputs(value)}
 
-      <EducationCard educationArray={educationArray} onDelete={deleteSave} />
+      <EducationCard
+        educationArray={educationArray}
+        changeValue={handleButtonClick}
+        valueOfEdit={changeValueOfEdit}
+        onDelete={deleteSave}
+      />
       <EducationList educationArray={educationArray} />
     </>
   );
