@@ -1,6 +1,7 @@
 import { useState } from "react";
 import EducationForm from "./inputElements/EducationForm";
 import EducationList from "./infoElements/EducationList";
+import EducationCard from "./infoElements/EducationCard";
 
 function Education() {
   const [value, setValue] = useState(0);
@@ -26,6 +27,13 @@ function Education() {
     setEducationArray((prev) => [...prev, newEducation]);
   }
 
+  function deleteSave(objOfId) {
+    const updatedEdcArr = educationArray.filter(
+      (objSaved) => objSaved.id !== objOfId
+    );
+    setEducationArray(updatedEdcArr);
+  }
+
   return (
     <>
       <h2>Education</h2>
@@ -35,6 +43,8 @@ function Education() {
         </button>
       </div>
       {displayInputs(value)}
+
+      <EducationCard educationArray={educationArray} onDelete={deleteSave} />
       <EducationList educationArray={educationArray} />
     </>
   );
