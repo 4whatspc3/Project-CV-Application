@@ -83,7 +83,11 @@ function Education() {
     <>
       <h2>Education</h2>
       <div>
-        <button className="information" onClick={handleButtonClick}>
+        <button
+          className="information"
+          onClick={handleButtonClick}
+          disabled={buttonValue}
+        >
           Add Information
         </button>
       </div>
