@@ -8,18 +8,13 @@ import {
   LocationInput,
 } from "./inputElements";
 
-function EducationForm({
-  onSave,
-  changeValue,
-  toEdit,
-  valueOfEdit,
-  changeValueOfEdit,
-}) {
+function EducationForm({ onSave, changeValue, toEdit, valueOfEdit }) {
   const [textSchool, setTextSchool] = useState("");
   const [textDegree, setTextDegree] = useState("");
   const [textStart, setTextStart] = useState("");
   const [textEnd, setTextEnd] = useState("");
   const [textLocation, setTextLocation] = useState("");
+  const [counter, setCounter] = useState(0);
 
   function handleSave(e) {
     e.preventDefault();
@@ -40,35 +35,36 @@ function EducationForm({
     setTextStart("");
     setTextEnd("");
     setTextLocation("");
+
+    setCounter(0);
   }
 
   function handleChange(num, e) {
-    if (valueOfEdit !== false) {
+    if (valueOfEdit === true && counter === 0) {
       setTextSchool(toEdit.school);
       setTextDegree(toEdit.degree);
       setTextStart(toEdit.start);
       setTextEnd(toEdit.end);
       setTextLocation(toEdit.location);
 
-      changeValueOfEdit();
-    } else {
-      switch (num) {
-        case 0:
-          setTextSchool(e.target.value);
-          break;
-        case 1:
-          setTextDegree(e.target.value);
-          break;
-        case 2:
-          setTextStart(e.target.value);
-          break;
-        case 3:
-          setTextEnd(e.target.value);
-          break;
-        case 4:
-          setTextLocation(e.target.value);
-          break;
-      }
+      setCounter(1);
+    }
+    switch (num) {
+      case 0:
+        setTextSchool(e.target.value);
+        break;
+      case 1:
+        setTextDegree(e.target.value);
+        break;
+      case 2:
+        setTextStart(e.target.value);
+        break;
+      case 3:
+        setTextEnd(e.target.value);
+        break;
+      case 4:
+        setTextLocation(e.target.value);
+        break;
     }
   }
 

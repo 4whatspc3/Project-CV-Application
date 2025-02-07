@@ -51,8 +51,16 @@ function Education() {
       });
 
       setToEdit(null);
+
+      setValueOfEdit(false);
+
+      toggleButton();
     } else {
       setEducationArray((prev) => [...prev, newEducation]);
+
+      if (buttonValue === true) {
+        toggleButton();
+      }
     }
   }
 
@@ -86,7 +94,7 @@ function Education() {
         <button
           className="information"
           onClick={handleButtonClick}
-          disabled={buttonValue}
+          disabled={value === 1 ? buttonValue : null}
         >
           Add Information
         </button>
