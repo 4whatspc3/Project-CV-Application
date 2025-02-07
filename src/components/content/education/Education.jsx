@@ -8,6 +8,7 @@ function Education() {
   const [toEdit, setToEdit] = useState(null);
   const [valueOfEdit, setValueOfEdit] = useState(false);
   const [educationArray, setEducationArray] = useState([]);
+  const [buttonValue, setButtonValue] = useState(false);
 
   function displayInputs(value) {
     if (value === 1) {
@@ -29,6 +30,12 @@ function Education() {
     value === 0
       ? setValue((previousState) => 1)
       : setValue((previousState) => 0);
+  }
+
+  function toggleButton() {
+    buttonValue === false
+      ? setButtonValue((previousState) => true)
+      : setButtonValue((previousState) => false);
   }
 
   function handleSave(newEducation) {
@@ -87,6 +94,8 @@ function Education() {
         changeValue={handleButtonClick}
         onEdit={handleEdit}
         onDelete={deleteSave}
+        buttonValue={buttonValue}
+        toggleButton={toggleButton}
       />
       <EducationList educationArray={educationArray} />
     </>

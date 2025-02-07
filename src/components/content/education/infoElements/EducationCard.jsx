@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-function EducationCard({ onDelete, onEdit, educationArray }) {
-  const [buttonValue, setButtonValue] = useState(false);
-
-  function disableButton() {
-    setButtonValue((prev) => true);
-  }
-
+function EducationCard({
+  onDelete,
+  onEdit,
+  educationArray,
+  buttonValue,
+  toggleButton,
+}) {
   return (
     <div className="education-info">
       {educationArray.map((edc) => (
@@ -18,14 +18,18 @@ function EducationCard({ onDelete, onEdit, educationArray }) {
               className="edit"
               onClick={() => {
                 onEdit(edc.id);
-                disableButton();
+                toggleButton();
               }}
               disabled={buttonValue}
             >
               Edit
             </button>
 
-            <button className="delete" onClick={() => onDelete(edc.id)}>
+            <button
+              className="delete"
+              onClick={() => onDelete(edc.id)}
+              disabled={buttonValue}
+            >
               Delete
             </button>
           </li>
