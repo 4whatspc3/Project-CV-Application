@@ -1,4 +1,12 @@
-function EducationCard({ onDelete, valueOfEdit, changeValue, educationArray }) {
+import { useState } from "react";
+
+function EducationCard({ onDelete, onEdit, educationArray }) {
+  const [buttonValue, setButtonValue] = useState(false);
+
+  function disableButton() {
+    setButtonValue((prev) => true);
+  }
+
   return (
     <div className="education-info">
       {educationArray.map((edc) => (
@@ -9,9 +17,10 @@ function EducationCard({ onDelete, valueOfEdit, changeValue, educationArray }) {
             <button
               className="edit"
               onClick={() => {
-                changeValue();
-                valueOfEdit();
+                onEdit(edc.id);
+                disableButton();
               }}
+              disabled={buttonValue}
             >
               Edit
             </button>
