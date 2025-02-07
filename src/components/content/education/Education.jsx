@@ -5,8 +5,25 @@ import EducationCard from "./infoElements/EducationCard";
 
 function Education() {
   const [value, setValue] = useState(0);
-  const [allowEdit, setAllowEdit] = useState(false);
+  const [toEdit, setToEdit] = useState(null);
+  const [valueOfEdit, setValueOfEdit] = useState(false);
   const [educationArray, setEducationArray] = useState([]);
+
+  function displayInputs(value) {
+    if (value === 1) {
+      return (
+        <EducationForm
+          toEdit={toEdit}
+          valueOfEdit={valueOfEdit}
+          changeValueOfEdit={changeValueOfEdit}
+          onSave={handleSave}
+          changeValue={handleButtonClick}
+        />
+      );
+    } else {
+      return null;
+    }
+  }
 
   function handleButtonClick() {
     value === 0
@@ -14,24 +31,38 @@ function Education() {
       : setValue((previousState) => 0);
   }
 
-  function displayInputs(value) {
-    if (value === 1) {
-      return (
-        <EducationForm onSave={handleSave} changeValue={handleButtonClick} />
+  function handleSave(newEducation) {
+    if (toEdit !== null) {
+      const indexToUpdate = educationArray.findIndex(
+        (objSaved) => objSaved.id === toEdit.id
       );
+
+      setEducationArray((prev) => {
+        const newArray = [...prev];
+        newArray[indexToUpdate] = newEducation;
+        return newArray;
+      });
+
+      setToEdit(null);
     } else {
-      return null;
+      setEducationArray((prev) => [...prev, newEducation]);
     }
   }
 
-  function handleSave(newEducation) {
-    setEducationArray((prev) => [...prev, newEducation]);
+  function handleEdit(objOfId) {
+    const objToEdit = educationArray.find(
+      (objSaved) => objSaved.id === objOfId
+    );
+
+    setToEdit(objToEdit);
+
+    changeValueOfEdit();
   }
 
   function changeValueOfEdit() {
-    allowEdit === false
-      ? setAllowEdit((previousState) => true)
-      : setAllowEdit((previousState) => false);
+    valueOfEdit === false
+      ? setValueOfEdit((prev) => true)
+      : setValueOfEdit((prev) => false);
   }
 
   function deleteSave(objOfId) {
@@ -54,7 +85,7 @@ function Education() {
       <EducationCard
         educationArray={educationArray}
         changeValue={handleButtonClick}
-        valueOfEdit={changeValueOfEdit}
+        onEdit={handleEdit}
         onDelete={deleteSave}
       />
       <EducationList educationArray={educationArray} />
