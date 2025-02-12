@@ -19,6 +19,8 @@ function Education() {
           changeValueOfEdit={changeValueOfEdit}
           onSave={handleSave}
           changeValue={handleButtonClick}
+          toggleButton={toggleButton}
+          toggleEdit={toggleEdit}
         />
       );
     } else {
@@ -78,6 +80,10 @@ function Education() {
     valueOfEdit === false
       ? setValueOfEdit((prev) => true)
       : setValueOfEdit((prev) => false);
+  }
+
+  function toggleEdit() {
+    toEdit !== null ? setToEdit((prev) => null) : null;
   }
 
   function deleteSave(objOfId) {

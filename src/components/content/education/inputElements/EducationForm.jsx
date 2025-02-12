@@ -8,7 +8,15 @@ import {
   LocationInput,
 } from "./inputElements";
 
-function EducationForm({ onSave, changeValue, toEdit, valueOfEdit }) {
+function EducationForm({
+  onSave,
+  changeValue,
+  toEdit,
+  valueOfEdit,
+  changeValueOfEdit,
+  toggleButton,
+  toggleEdit,
+}) {
   const [textSchool, setTextSchool] = useState("");
   const [textDegree, setTextDegree] = useState("");
   const [textStart, setTextStart] = useState("");
@@ -94,7 +102,15 @@ function EducationForm({ onSave, changeValue, toEdit, valueOfEdit }) {
       </div>
 
       <div>
-        <button className="cancel" onClick={changeValue}>
+        <button
+          className="cancel"
+          onClick={() => {
+            changeValue();
+            changeValueOfEdit();
+            toggleButton();
+            toggleEdit();
+          }}
+        >
           Cancel
         </button>
       </div>
