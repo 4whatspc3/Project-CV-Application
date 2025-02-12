@@ -43,7 +43,7 @@ function EducationForm({
   }
 
   function handleChange(num, e) {
-    if (valueOfEdit === true) {
+    if (valueOfEdit === 1) {
       setTextSchool(toEdit.school);
       setTextDegree(toEdit.degree);
       setTextStart(toEdit.start);

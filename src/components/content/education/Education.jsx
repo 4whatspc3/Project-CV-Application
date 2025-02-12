@@ -3,12 +3,16 @@ import EducationForm from "./inputElements/EducationForm";
 import EducationList from "./infoElements/EducationList";
 import EducationCard from "./infoElements/EducationCard";
 
+function toggleState(setAnyValue) {
+  setAnyValue((prev) => (prev ? 0 : 1));
+}
+
 function Education() {
   const [value, setValue] = useState(0);
+  const [valueOfEdit, setValueOfEdit] = useState(0);
+  const [buttonValue, setButtonValue] = useState(0);
   const [toEdit, setToEdit] = useState(null);
-  const [valueOfEdit, setValueOfEdit] = useState(false);
   const [educationArray, setEducationArray] = useState([]);
-  const [buttonValue, setButtonValue] = useState(false);
 
   function displayInputs(value) {
     if (value === 1) {
@@ -18,24 +22,12 @@ function Education() {
           valueOfEdit={valueOfEdit}
           onSave={handleSave}
           handleCancel={handleCancel}
-          changeValueOfEdit={changeValueOfEdit}
+          changeValueOfEdit={() => toggleState(setValueOfEdit)}
         />
       );
     } else {
       return null;
     }
-  }
-
-  function handleButtonClick() {
-    value === 0
-      ? setValue((previousState) => 1)
-      : setValue((previousState) => 0);
-  }
-
-  function toggleButton() {
-    buttonValue === false
-      ? setButtonValue((previousState) => true)
-      : setButtonValue((previousState) => false);
   }
 
   function handleSave(newEducation) {
@@ -52,14 +44,14 @@ function Education() {
 
       setToEdit(null);
 
-      setValueOfEdit(false);
+      setValueOfEdit(0);
 
-      toggleButton();
+      toggleState(setButtonValue);
     } else {
       setEducationArray((prev) => [...prev, newEducation]);
 
-      if (buttonValue === true) {
-        toggleButton();
+      if (buttonValue === 1) {
+        setButtonValue(0);
       }
     }
   }
@@ -71,13 +63,7 @@ function Education() {
 
     setToEdit(objToEdit);
 
-    changeValueOfEdit();
-  }
-
-  function changeValueOfEdit() {
-    valueOfEdit === false
-      ? setValueOfEdit((prev) => true)
-      : setValueOfEdit((prev) => false);
+    toggleState(setValueOfEdit);
   }
 
   function toggleEdit() {
@@ -92,16 +78,16 @@ function Education() {
   }
 
   function handleCancel() {
-    handleButtonClick();
+    toggleState(setValue);
 
     toggleEdit();
 
-    if (valueOfEdit === true) {
-      changeValueOfEdit();
+    if (valueOfEdit === 1) {
+      setValueOfEdit(0);
     }
 
-    if (buttonValue === true) {
-      toggleButton();
+    if (buttonValue === 1) {
+      setButtonValue(0);
     }
   }
 
@@ -111,7 +97,7 @@ function Education() {
       <div>
         <button
           className="information"
-          onClick={handleButtonClick}
+          onClick={() => toggleState(setValue)}
           disabled={value === 1 ? buttonValue : null}
         >
           Add Information
@@ -121,11 +107,11 @@ function Education() {
 
       <EducationCard
         educationArray={educationArray}
-        changeValue={handleButtonClick}
+        changeValue={() => toggleState(setValue)}
         onEdit={handleEdit}
         onDelete={deleteSave}
         buttonValue={buttonValue}
-        toggleButton={toggleButton}
+        toggleButton={() => toggleState(setButtonValue)}
       />
       <EducationList educationArray={educationArray} />
     </>
