@@ -94,11 +94,15 @@ function Education() {
   function handleCancel() {
     handleButtonClick();
 
-    changeValueOfEdit();
-
-    toggleButton();
-
     toggleEdit();
+
+    if (valueOfEdit === true) {
+      changeValueOfEdit();
+    }
+
+    if (buttonValue === true) {
+      toggleButton();
+    }
   }
 
   return (
