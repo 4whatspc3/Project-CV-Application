@@ -10,19 +10,16 @@ import {
 
 function EducationForm({
   onSave,
-  changeValue,
   toEdit,
   valueOfEdit,
+  handleCancel,
   changeValueOfEdit,
-  toggleButton,
-  toggleEdit,
 }) {
   const [textSchool, setTextSchool] = useState("");
   const [textDegree, setTextDegree] = useState("");
   const [textStart, setTextStart] = useState("");
   const [textEnd, setTextEnd] = useState("");
   const [textLocation, setTextLocation] = useState("");
-  const [counter, setCounter] = useState(0);
 
   function handleSave(e) {
     e.preventDefault();
@@ -43,20 +40,19 @@ function EducationForm({
     setTextStart("");
     setTextEnd("");
     setTextLocation("");
-
-    setCounter(0);
   }
 
   function handleChange(num, e) {
-    if (valueOfEdit === true && counter === 0) {
+    if (valueOfEdit === true) {
       setTextSchool(toEdit.school);
       setTextDegree(toEdit.degree);
       setTextStart(toEdit.start);
       setTextEnd(toEdit.end);
       setTextLocation(toEdit.location);
 
-      setCounter(1);
+      changeValueOfEdit();
     }
+
     switch (num) {
       case 0:
         setTextSchool(e.target.value);
@@ -102,15 +98,7 @@ function EducationForm({
       </div>
 
       <div>
-        <button
-          className="cancel"
-          onClick={() => {
-            changeValue();
-            changeValueOfEdit();
-            toggleButton();
-            toggleEdit();
-          }}
-        >
+        <button className="cancel" onClick={handleCancel}>
           Cancel
         </button>
       </div>

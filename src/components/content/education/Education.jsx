@@ -16,11 +16,9 @@ function Education() {
         <EducationForm
           toEdit={toEdit}
           valueOfEdit={valueOfEdit}
-          changeValueOfEdit={changeValueOfEdit}
           onSave={handleSave}
-          changeValue={handleButtonClick}
-          toggleButton={toggleButton}
-          toggleEdit={toggleEdit}
+          handleCancel={handleCancel}
+          changeValueOfEdit={changeValueOfEdit}
         />
       );
     } else {
@@ -91,6 +89,16 @@ function Education() {
       (objSaved) => objSaved.id !== objOfId
     );
     setEducationArray(updatedEdcArr);
+  }
+
+  function handleCancel() {
+    handleButtonClick();
+
+    changeValueOfEdit();
+
+    toggleButton();
+
+    toggleEdit();
   }
 
   return (
