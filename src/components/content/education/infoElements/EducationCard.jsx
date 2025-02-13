@@ -6,12 +6,12 @@ function EducationCard({
   toggleButton,
 }) {
   return (
-    <div className="education-info">
+    <div className="education-card">
       {educationArray.map((edc) => (
-        <ol key={edc.id}>
-          <li>
-            <span className="text">{edc.school}</span>
+        <div key={edc.id} className="card">
+          <span className="text">{edc.school}</span>
 
+          <div className="container-btn-edit">
             <button
               className="edit"
               onClick={() => {
@@ -22,7 +22,9 @@ function EducationCard({
             >
               Edit
             </button>
+          </div>
 
+          <div className="container-btn-delete">
             <button
               className="delete"
               onClick={() => onDelete(edc.id)}
@@ -30,8 +32,8 @@ function EducationCard({
             >
               Delete
             </button>
-          </li>
-        </ol>
+          </div>
+        </div>
       ))}
     </div>
   );
