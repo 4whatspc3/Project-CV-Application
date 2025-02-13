@@ -94,7 +94,7 @@ function Education() {
   return (
     <>
       <h2>Education</h2>
-      <div>
+      <div className="container-btn-addInfo">
         <button
           className="information"
           onClick={() => toggleState(setValue)}
