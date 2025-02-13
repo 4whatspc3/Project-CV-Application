@@ -3,7 +3,7 @@ function EducationList({ educationArray }) {
     <div className="education-info">
       <h2>Education</h2>
       {educationArray.map((edc) => (
-        <ol key={edc.id}>
+        <ul key={edc.id}>
           <li>
             <span className="text">{edc.school}</span>
           </li>
@@ -19,7 +19,7 @@ function EducationList({ educationArray }) {
           <li>
             <span className="text">{edc.location}</span>
           </li>
-        </ol>
+        </ul>
       ))}
     </div>
   );
