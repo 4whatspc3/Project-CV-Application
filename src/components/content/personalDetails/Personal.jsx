@@ -4,8 +4,8 @@ import {
   EmailInput,
   PhoneInput,
   AddressInput,
-} from "./personalInputs";
-import { NameInfo, EmailInfo, PhoneInfo, AddressInfo } from "./personalInfo";
+} from "./PersonalInputs";
+import { NameInfo, EmailInfo, PhoneInfo, AddressInfo } from "./PersonalInfo";
 
 function Personal() {
   const [textName, setTextName] = useState("");

@@ -6,7 +6,7 @@ import {
   StartDateInput,
   EndDateInput,
   LocationInput,
-} from "./inputElements";
+} from "./InputElements";
 
 function EducationForm({
   onSave,
