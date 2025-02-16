@@ -8,39 +8,47 @@ import {
 import { NameInfo, EmailInfo, PhoneInfo, AddressInfo } from "./PersonalInfo";
 
 function Personal() {
-  const [textName, setTextName] = useState("");
-  const [textEmail, setTextEmail] = useState("");
-  const [textPhone, setTextPhone] = useState("");
-  const [textAddress, setTextAddress] = useState("");
+  const [formData, setFormData] = useState({
+    textName: "",
+    textEmail: "",
+    textPhone: "",
+    textAddress: "",
+  });
+
+  function handleChange(property, value) {
+    setFormData((prev) => ({
+      ...prev,
+      [property]: value,
+    }));
+  }
 
   return (
     <>
       <h2>Personal Details</h2>
-
       <form className="personal-details">
         <NameInput
-          value={textName}
-          handleChange={(e) => setTextName(e.target.value)}
+          value={formData.textName}
+          handleChange={(e) => handleChange("textName", e.target.value)}
         />
         <EmailInput
-          value={textEmail}
-          handleChange={(e) => setTextEmail(e.target.value)}
+          value={formData.textEmail}
+          handleChange={(e) => handleChange("textEmail", e.target.value)}
         />
         <PhoneInput
-          value={textPhone}
-          handleChange={(e) => setTextPhone(e.target.value)}
+          value={formData.textPhone}
+          handleChange={(e) => handleChange("textPhone", e.target.value)}
         />
         <AddressInput
-          value={textAddress}
-          handleChange={(e) => setTextAddress(e.target.value)}
+          value={formData.textAddress}
+          handleChange={(e) => handleChange("textAddress", e.target.value)}
         />
       </form>
 
       <div className="personal-info">
-        <NameInfo value={textName} />
-        <EmailInfo value={textEmail} />
-        <PhoneInfo value={textPhone} />
-        <AddressInfo value={textAddress} />
+        <NameInfo value={formData.textName} />
+        <EmailInfo value={formData.textEmail} />
+        <PhoneInfo value={formData.textPhone} />
+        <AddressInfo value={formData.textAddress} />
       </div>
     </>
   );
