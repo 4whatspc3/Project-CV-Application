@@ -7,12 +7,11 @@ function toggleState(setAnyValue) {
   setAnyValue((prev) => (prev ? 0 : 1));
 }
 
-function Work() {
+function Work({ workArray, handleWorkArray }) {
   const [value, setValue] = useState(0);
   const [valueOfEdit, setValueOfEdit] = useState(0);
   const [buttonValue, setButtonValue] = useState(0);
   const [toEdit, setToEdit] = useState(null);
-  const [workArray, setWorkArray] = useState([]);
 
   function displayInputs(value) {
     if (value === 1) {
@@ -36,11 +35,7 @@ function Work() {
         (objSaved) => objSaved.id === toEdit.id
       );
 
-      setWorkArray((prev) => {
-        const newArray = [...prev];
-        newArray[indexToUpdate] = newWork;
-        return newArray;
-      });
+      handleWorkArray("edit", newWork, indexToUpdate);
 
       setToEdit(null);
 
@@ -48,7 +43,7 @@ function Work() {
 
       toggleState(setButtonValue);
     } else {
-      setWorkArray((prev) => [...prev, newWork]);
+      handleWorkArray("save", newWork);
 
       if (buttonValue === 1) {
         setButtonValue(0);
@@ -72,7 +67,7 @@ function Work() {
     const updatedWrkArr = workArray.filter(
       (objSaved) => objSaved.id !== objOfId
     );
-    setWorkArray(updatedWrkArr);
+    handleWorkArray("delete", updatedWrkArr);
   }
 
   function handleCancel() {
@@ -112,7 +107,6 @@ function Work() {
         buttonValue={buttonValue}
         toggleButton={() => toggleState(setButtonValue)}
       />
-      <WorkList workArray={workArray} />
     </>
   );
 }
