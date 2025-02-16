@@ -2,7 +2,7 @@ import { useState } from "react";
 import Education from "./components/content/education/Education";
 import EducationList from "./components/content/education/infoElements/EducationList";
 import Personal from "./components/content/personalDetails/Personal";
-import PersonalInfo from "./components/content/personalDetails/PersonalInfo";
+import PersonalList from "./components/content/personalDetails/PersonalList";
 import Work from "./components/content/workExperience/Work";
 import WorkList from "./components/content/workExperience/infoElements/WorkList";
 
@@ -66,7 +66,7 @@ function App() {
         personalData={personalData}
         handleChangePersonal={handleChangePersonal}
       />
-      <PersonalInfo personalData={personalData} />
+      <PersonalList personalData={personalData} />
       <Education
         educationArray={educationArray}
         handleEducationArray={handleEducationArray}

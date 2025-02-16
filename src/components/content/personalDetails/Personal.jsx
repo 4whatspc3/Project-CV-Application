@@ -1,11 +1,9 @@
-import { useState } from "react";
 import {
   NameInput,
   EmailInput,
   PhoneInput,
   AddressInput,
 } from "./PersonalInputs";
-import PersonalInfo from "./PersonalInfo";
 
 function Personal({ personalData, handleChangePersonal }) {
   return (

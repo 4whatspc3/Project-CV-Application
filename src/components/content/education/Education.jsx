@@ -1,6 +1,5 @@
 import { useState } from "react";
 import EducationForm from "./inputElements/EducationForm";
-import EducationList from "./infoElements/EducationList";
 import EducationCard from "./infoElements/EducationCard";
 
 function toggleState(setAnyValue) {

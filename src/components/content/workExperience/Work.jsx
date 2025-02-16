@@ -1,6 +1,5 @@
 import { useState } from "react";
 import WorkForm from "./inputElements/WorkForm";
-import WorkList from "./infoElements/WorkList";
 import WorkCard from "./infoElements/WorkCard";
 
 function toggleState(setAnyValue) {

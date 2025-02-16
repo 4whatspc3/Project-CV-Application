@@ -1,4 +1,4 @@
-function PersonalInfo({ personalData }) {
+function PersonalList({ personalData }) {
   return (
     <div className="personal-info">
       <ul key={personalData.id}>
@@ -19,4 +19,4 @@ function PersonalInfo({ personalData }) {
   );
 }
 
-export default PersonalInfo;
+export default PersonalList;
