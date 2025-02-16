@@ -2,12 +2,27 @@ import { useState } from "react";
 import Education from "./components/content/education/Education";
 import EducationList from "./components/content/education/infoElements/EducationList";
 import Personal from "./components/content/personalDetails/Personal";
+import PersonalInfo from "./components/content/personalDetails/PersonalInfo";
 import Work from "./components/content/workExperience/Work";
 import WorkList from "./components/content/workExperience/infoElements/WorkList";
 
 function App() {
   const [educationArray, setEducationArray] = useState([]);
   const [workArray, setWorkArray] = useState([]);
+  const [personalData, setpersonalData] = useState({
+    id: crypto.randomUUID(),
+    textName: "",
+    textEmail: "",
+    textPhone: "",
+    textAddress: "",
+  });
+
+  function handleChangePersonal(property, value) {
+    setpersonalData((prev) => ({
+      ...prev,
+      [property]: value,
+    }));
+  }
 
   function handleEducationArray(param, newItem, indexToUpdate) {
     if (param === "save") {
@@ -47,7 +62,11 @@ function App() {
 
   return (
     <>
-      <Personal />
+      <Personal
+        personalData={personalData}
+        handleChangePersonal={handleChangePersonal}
+      />
+      <PersonalInfo personalData={personalData} />
       <Education
         educationArray={educationArray}
         handleEducationArray={handleEducationArray}
