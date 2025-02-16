@@ -1,17 +1,22 @@
-const NameInfo = ({ value }) => {
-  return <p>{value}</p>;
-};
+function PersonalInfo({ personalData }) {
+  return (
+    <div className="personal-info">
+      <ul key={personalData.id}>
+        <li>
+          <span className="text">{personalData.textName}</span>
+        </li>
+        <li>
+          <span className="text">{personalData.textEmail}</span>
+        </li>
+        <li>
+          <span className="text">{personalData.textPhone}</span>
+        </li>
+        <li>
+          <span className="text">{personalData.textAddress}</span>
+        </li>
+      </ul>
+    </div>
+  );
+}
 
-const EmailInfo = ({ value }) => {
-  return <p>{value}</p>;
-};
-
-const PhoneInfo = ({ value }) => {
-  return <p>{value}</p>;
-};
-
-const AddressInfo = ({ value }) => {
-  return <p>{value}</p>;
-};
-
-export { NameInfo, EmailInfo, PhoneInfo, AddressInfo };
+export default PersonalInfo;

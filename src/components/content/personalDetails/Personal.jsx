@@ -5,10 +5,11 @@ import {
   PhoneInput,
   AddressInput,
 } from "./PersonalInputs";
-import { NameInfo, EmailInfo, PhoneInfo, AddressInfo } from "./PersonalInfo";
+import PersonalInfo from "./PersonalInfo";
 
 function Personal() {
-  const [formData, setFormData] = useState({
+  const [personalData, setpersonalData] = useState({
+    id: crypto.randomUUID(),
     textName: "",
     textEmail: "",
     textPhone: "",
@@ -16,7 +17,7 @@ function Personal() {
   });
 
   function handleChange(property, value) {
-    setFormData((prev) => ({
+    setpersonalData((prev) => ({
       ...prev,
       [property]: value,
     }));
@@ -27,29 +28,24 @@ function Personal() {
       <h2>Personal Details</h2>
       <form className="personal-details">
         <NameInput
-          value={formData.textName}
+          value={personalData.textName}
           handleChange={(e) => handleChange("textName", e.target.value)}
         />
         <EmailInput
-          value={formData.textEmail}
+          value={personalData.textEmail}
           handleChange={(e) => handleChange("textEmail", e.target.value)}
         />
         <PhoneInput
-          value={formData.textPhone}
+          value={personalData.textPhone}
           handleChange={(e) => handleChange("textPhone", e.target.value)}
         />
         <AddressInput
-          value={formData.textAddress}
+          value={personalData.textAddress}
           handleChange={(e) => handleChange("textAddress", e.target.value)}
         />
       </form>
 
-      <div className="personal-info">
-        <NameInfo value={formData.textName} />
-        <EmailInfo value={formData.textEmail} />
-        <PhoneInfo value={formData.textPhone} />
-        <AddressInfo value={formData.textAddress} />
-      </div>
+      <PersonalInfo personalData={personalData} />
     </>
   );
 }
