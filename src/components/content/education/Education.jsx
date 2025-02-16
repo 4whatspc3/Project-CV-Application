@@ -7,12 +7,11 @@ function toggleState(setAnyValue) {
   setAnyValue((prev) => (prev ? 0 : 1));
 }
 
-function Education() {
+function Education({ educationArray, handleEducationArray }) {
   const [value, setValue] = useState(0);
   const [valueOfEdit, setValueOfEdit] = useState(0);
   const [buttonValue, setButtonValue] = useState(0);
   const [toEdit, setToEdit] = useState(null);
-  const [educationArray, setEducationArray] = useState([]);
 
   function displayInputs(value) {
     if (value === 1) {
@@ -36,11 +35,7 @@ function Education() {
         (objSaved) => objSaved.id === toEdit.id
       );
 
-      setEducationArray((prev) => {
-        const newArray = [...prev];
-        newArray[indexToUpdate] = newEducation;
-        return newArray;
-      });
+      handleEducationArray("edit", newEducation, indexToUpdate);
 
       setToEdit(null);
 
@@ -48,7 +43,7 @@ function Education() {
 
       toggleState(setButtonValue);
     } else {
-      setEducationArray((prev) => [...prev, newEducation]);
+      handleEducationArray("save", newEducation);
 
       if (buttonValue === 1) {
         setButtonValue(0);
@@ -74,7 +69,7 @@ function Education() {
     const updatedEdcArr = educationArray.filter(
       (objSaved) => objSaved.id !== objOfId
     );
-    setEducationArray(updatedEdcArr);
+    handleEducationArray("delete", updatedEdcArr);
   }
 
   function handleCancel() {
@@ -113,7 +108,6 @@ function Education() {
         buttonValue={buttonValue}
         toggleButton={() => toggleState(setButtonValue)}
       />
-      <EducationList educationArray={educationArray} />
     </>
   );
 }
