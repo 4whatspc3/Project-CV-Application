@@ -66,14 +66,19 @@ function App() {
         personalData={personalData}
         handleChangePersonal={handleChangePersonal}
       />
-      <PersonalList personalData={personalData} />
+
       <Education
         educationArray={educationArray}
         handleEducationArray={handleEducationArray}
       />
-      <EducationList educationArray={educationArray} />
+
       <Work workArray={workArray} handleWorkArray={handleWorkArray} />
-      <WorkList workArray={workArray} />
+
+      <div className="display-lists">
+        <PersonalList personalData={personalData} />
+        <EducationList educationArray={educationArray} />
+        <WorkList workArray={workArray} />
+      </div>
     </>
   );
 }
