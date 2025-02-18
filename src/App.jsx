@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./App.css";
 import Education from "./components/content/education/Education";
 import EducationList from "./components/content/education/infoElements/EducationList";
 import Personal from "./components/content/personalDetails/Personal";
@@ -62,17 +63,19 @@ function App() {
 
   return (
     <>
-      <Personal
-        personalData={personalData}
-        handleChangePersonal={handleChangePersonal}
-      />
+      <div className="display-forms">
+        <Personal
+          personalData={personalData}
+          handleChangePersonal={handleChangePersonal}
+        />
 
-      <Education
-        educationArray={educationArray}
-        handleEducationArray={handleEducationArray}
-      />
+        <Education
+          educationArray={educationArray}
+          handleEducationArray={handleEducationArray}
+        />
 
-      <Work workArray={workArray} handleWorkArray={handleWorkArray} />
+        <Work workArray={workArray} handleWorkArray={handleWorkArray} />
+      </div>
 
       <div className="display-lists">
         <PersonalList personalData={personalData} />
