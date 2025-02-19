@@ -11,6 +11,16 @@ form {
     gap: 6px;
 }
 
+label {
+    padding-top: 8px;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid #0b2c3e;
+    padding: 6px;
+}
+
 .display-forms {
     display: flex;
     flex-direction: column;
@@ -27,6 +37,7 @@ form {
 }
 
 .container-buttons {
+    padding-top: 12px;
     display: flex;
     justify-content: flex-start;
     gap: 10px;    
