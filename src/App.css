@@ -42,3 +42,16 @@ input {
     justify-content: flex-start;
     gap: 10px;    
 }
+
+.container-btn-addInfo button {
+    background-color: transparent;
+    border: 3px solid #0b2c3e;
+    border-radius: 25px;
+    padding: 8px;
+}
+
+.container-btn-addInfo button:hover {
+    transform: scale(1.1);
+    background-color: #f1f1f1;
+}
+
