@@ -25,3 +25,9 @@ form {
     padding: 12px;
     border-radius: 25px;
 }
+
+.container-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;    
+}

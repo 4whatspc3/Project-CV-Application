@@ -91,16 +91,19 @@ function EducationForm({
         value={textLocation}
         handleChange={(e) => handleChange(4, e)}
       />
-      <div className="container-btn-save">
-        <button className="Save" onClick={handleSave}>
-          Save
-        </button>
-      </div>
 
-      <div className="container-btn-cancel">
-        <button className="cancel" onClick={handleCancel}>
-          Cancel
-        </button>
+      <div className="container-buttons">
+        <div className="container-btn-save">
+          <button className="Save" onClick={handleSave}>
+            Save
+          </button>
+        </div>
+
+        <div className="container-btn-cancel">
+          <button className="cancel" onClick={handleCancel}>
+            Cancel
+          </button>
+        </div>
       </div>
     </form>
   );
