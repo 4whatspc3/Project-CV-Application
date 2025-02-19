@@ -7,7 +7,7 @@ import {
 
 function Personal({ personalData, handleChangePersonal }) {
   return (
-    <>
+    <div className="container-personal">
       <h2>Personal Details</h2>
       <form className="personal-details">
         <NameInput
@@ -33,7 +33,7 @@ function Personal({ personalData, handleChangePersonal }) {
           }
         />
       </form>
-    </>
+    </div>
   );
 }
 

@@ -84,7 +84,7 @@ function Work({ workArray, handleWorkArray }) {
   }
 
   return (
-    <>
+    <div className="container-work">
       <h2>Work Experience</h2>
 
       <div className="container-btn-addInfo">
@@ -106,7 +106,7 @@ function Work({ workArray, handleWorkArray }) {
         buttonValue={buttonValue}
         toggleButton={() => toggleState(setButtonValue)}
       />
-    </>
+    </div>
   );
 }
 

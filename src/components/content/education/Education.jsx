@@ -86,7 +86,7 @@ function Education({ educationArray, handleEducationArray }) {
   }
 
   return (
-    <>
+    <div className="container-education">
       <h2>Education</h2>
       <div className="container-btn-addInfo">
         <button
@@ -107,7 +107,7 @@ function Education({ educationArray, handleEducationArray }) {
         buttonValue={buttonValue}
         toggleButton={() => toggleState(setButtonValue)}
       />
-    </>
+    </div>
   );
 }
 
