@@ -37,10 +37,31 @@ input {
 }
 
 .container-buttons {
-    padding-top: 12px;
+    padding-top: 24px;
     display: flex;
     justify-content: flex-start;
     gap: 10px;    
+}
+
+.save, .cancel {
+    background-color: hsla(212, 92%, 53%, 0.5);
+    border: none;
+    border-radius: 25px;
+    padding: 8px;
+    width: 80px;
+}
+
+.save:hover {
+    background-color: hsla(212, 92%, 53%, 1);
+
+}
+
+.cancel {
+    background-color: hsla(2, 92%, 53%, 0.5);
+}
+
+.cancel:hover {
+    background-color: hsla(2, 92%, 53%, 1);
 }
 
 .container-btn-addInfo button {

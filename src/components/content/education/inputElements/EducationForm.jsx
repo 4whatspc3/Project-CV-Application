@@ -94,7 +94,7 @@ function EducationForm({
 
       <div className="container-buttons">
         <div className="container-btn-save">
-          <button className="Save" onClick={handleSave}>
+          <button className="save" onClick={handleSave}>
             Save
           </button>
         </div>
