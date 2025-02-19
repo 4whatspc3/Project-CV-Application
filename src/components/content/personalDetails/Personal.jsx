@@ -9,7 +9,7 @@ function Personal({ personalData, handleChangePersonal }) {
   return (
     <div className="container-personal">
       <h2>Personal Details</h2>
-      <form className="personal-details">
+      <form className="personal-form">
         <NameInput
           value={personalData.textName}
           handleChange={(e) => handleChangePersonal("textName", e.target.value)}
