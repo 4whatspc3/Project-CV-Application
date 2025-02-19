@@ -1,9 +1,27 @@
 #root{
     display: flex;
+    justify-content: space-between;
+    width: 1600px;
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 6px;
+}
+
+.display-forms {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.display-forms > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 25px;
 }
