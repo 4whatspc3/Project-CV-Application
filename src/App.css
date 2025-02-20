@@ -84,7 +84,7 @@ input {
 
 .container-btn-addInfo button {
     background-color: transparent;
-    border: 3px solid #0b2c3e;
+    border: 3px solid #8080801a;
     border-radius: 25px;
     padding: 8px;
 }
@@ -103,7 +103,7 @@ input {
 
 .edit, .delete {
     background-color: transparent;
-    border: 3px solid #0b2c3e;
+    border: 3px solid #8080801a;
     border-radius: 25px;
     padding: 8px;
 }
@@ -129,7 +129,9 @@ input {
 }
 
 .personal-info {
-    background-color: hsla(0, 0%, 50%, 0.5);
+    padding: 10px 0;
+    background-color: hsla(0, 0%, 0%, 0.9);
+    color: white;
     border-radius: 25px;
 }
 
