@@ -36,6 +36,18 @@ input {
     min-width: 300px;
     padding: 20px;
     border-radius: 25px;
+} 
+
+.display-forms > div:hover {
+    animation: 0.5s shaking ease-in-out;
+}
+
+@keyframes shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(1deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-1deg); }
+    100% { transform: rotate(0deg); }
 }
 
 .container-buttons {
