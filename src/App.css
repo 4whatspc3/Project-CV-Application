@@ -76,3 +76,25 @@ input {
     background-color: #f1f1f1;
 }
 
+.card {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.edit, .delete {
+    background-color: transparent;
+    border: 3px solid #0b2c3e;
+    border-radius: 25px;
+    padding: 8px;
+}
+
+.edit {
+    width: 60px;
+}
+
+.edit:hover, .delete:hover {
+    transform: scale(1.1);
+    background-color: #f1f1f1;
+}
