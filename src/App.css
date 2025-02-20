@@ -127,3 +127,22 @@ input {
     border-radius: 25px;
     background-color: #fff;
 }
+
+.personal-info {
+    background-color: hsla(0, 0%, 50%, 0.5);
+    border-radius: 25px;
+}
+
+.personal-info ul {
+    text-align: center;
+}
+
+.personal-info ul li:first-child{
+    font-weight: bold;
+    font-size: 48px;
+}
+
+.personal-info ul li {
+    padding: 10px;
+    font-size: 20px;
+}
