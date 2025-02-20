@@ -128,7 +128,7 @@ input {
     background-color: #fff;
 }
 
-.personal-info {
+.personal-info, .education-info {
     padding: 10px 0;
     background-color: hsla(0, 0%, 0%, 0.9);
     color: white;
@@ -144,7 +144,19 @@ input {
     font-size: 48px;
 }
 
-.personal-info ul li {
+.personal-info ul li,
+.education-info ul li {
     padding: 10px;
     font-size: 20px;
+}
+
+.education-info {
+    background-color: transparent;
+    color: black;
+}
+
+.education-info h2 {
+    padding: 10px;
+    background-color: #8080801a;
+    border-radius: 25px;
 }
