@@ -129,14 +129,15 @@ input {
     word-wrap: break-word;
     margin: 20px;
     padding: 20px;
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 25px;
     background-color: #fff;
 }
 
 .personal-info, .education-info {
     padding: 10px 0;
-    background-color: #0b2c3e;
-    color: white;
+    background-color: #fff;
+    color: #000000;
     border-radius: 25px;
 }
 
@@ -159,13 +160,13 @@ input {
 .education-info,
 .work-info {
     background-color: transparent;
-    color: black;
+    color: #ffffff;
 }
 
 .education-info h2,
 .work-info h2 {
     padding: 10px;
-    background-color: #8080801a;
+    background-color: #000000;
     border-radius: 25px;
 }
 
