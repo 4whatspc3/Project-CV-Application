@@ -130,7 +130,7 @@ input {
 
 .personal-info, .education-info {
     padding: 10px 0;
-    background-color: hsla(0, 0%, 0%, 0.9);
+    background-color: #0b2c3e;
     color: white;
     border-radius: 25px;
 }
@@ -159,4 +159,20 @@ input {
     padding: 10px;
     background-color: #8080801a;
     border-radius: 25px;
+}
+
+.education-info ul {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.education-info ul div {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.education-info ul li {
+    padding-top: 20px;
 }
