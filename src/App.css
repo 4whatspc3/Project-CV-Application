@@ -160,7 +160,7 @@ input {
 .education-info,
 .work-info {
     background-color: transparent;
-    color: #ffffff;
+    color: #000000;
 }
 
 .education-info h2,
@@ -168,6 +168,7 @@ input {
     padding: 10px;
     background-color: #000000;
     border-radius: 25px;
+    color: #fff;
 }
 
 .education-info ul,
