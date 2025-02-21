@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    width: 1600px;
+    width: 100%;
+    max-width: 1200px; 
 }
 
 form {
@@ -24,6 +25,7 @@ input {
 }
 
 .display-forms {
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -37,7 +39,7 @@ input {
     flex-direction: column;
     gap: 10px;
     background-color: #fff;
-    min-width: 300px;
+    width: 300px;
     padding: 20px;
     border-radius: 25px;
 } 
@@ -118,11 +120,12 @@ input {
 }
 
 .display-lists {
-    /* height: 100vh; */
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 10%;
+    min-width: 0;
+    word-wrap: break-word;
     margin: 20px;
     padding: 20px;
     border-radius: 25px;
