@@ -4,18 +4,23 @@ function WorkList({ workArray }) {
       <h2>Work</h2>
       {workArray.map((exp) => (
         <ul key={exp.id}>
-          <li>
-            <span className="text">{exp.company}</span>
-          </li>
-          <li>
-            <span className="text">{exp.title}</span>
-          </li>
-          <li>
-            <span className="text">{exp.start}</span>
-          </li>
-          <li>
-            <span className="text">{exp.end}</span>
-          </li>
+          <div>
+            <li>
+              <span className="text">{exp.company}</span>
+            </li>
+
+            <li>
+              <span className="text">{exp.title}</span>
+            </li>
+          </div>
+          <div>
+            <li>
+              <span className="text">{exp.start}</span>
+            </li>
+            <li>
+              <span className="text">{exp.end}</span>
+            </li>
+          </div>
           <li>
             <span className="text">{exp.location}</span>
           </li>

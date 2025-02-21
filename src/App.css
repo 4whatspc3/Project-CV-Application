@@ -118,6 +118,7 @@ input {
 }
 
 .display-lists {
+    /* height: 100vh; */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -145,34 +146,40 @@ input {
 }
 
 .personal-info ul li,
-.education-info ul li {
+.education-info ul li,
+.work-info ul li {
     padding: 10px;
     font-size: 20px;
 }
 
-.education-info {
+.education-info,
+.work-info {
     background-color: transparent;
     color: black;
 }
 
-.education-info h2 {
+.education-info h2,
+.work-info h2 {
     padding: 10px;
     background-color: #8080801a;
     border-radius: 25px;
 }
 
-.education-info ul {
+.education-info ul,
+.work-info ul {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.education-info ul div {
+.education-info ul div,
+.work-info ul div {
     flex: 1;
     display: flex;
     flex-wrap: wrap;
 }
 
-.education-info ul li {
+.education-info ul li,
+.work-info ul li {
     padding-top: 20px;
 }
