@@ -195,12 +195,14 @@ input {
 
     .display-forms {
         flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         height: 50vh;
     }
 
     .display-forms > div {
         overflow-y: auto;
         scrollbar-width: thin;
-        
+        width: 100%;
     }
 }
