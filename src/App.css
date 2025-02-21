@@ -1,5 +1,15 @@
 #root{
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 1200px; 
+}
+
+main {
+    display: flex;
     justify-content: space-between;
     gap: 10px;
     width: 100%;
@@ -191,7 +201,7 @@ input {
 }
 
 @media (max-width: 940px){
-    #root {
+    main {
         flex-direction: column;
     }
 

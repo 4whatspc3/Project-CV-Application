@@ -63,25 +63,45 @@ function App() {
 
   return (
     <>
-      <div className="display-forms">
-        <Personal
-          personalData={personalData}
-          handleChangePersonal={handleChangePersonal}
-        />
+      <header>
+        <h1>CV/Resume Generator</h1>
+      </header>
+      <main>
+        <section className="display-forms">
+          <Personal
+            personalData={personalData}
+            handleChangePersonal={handleChangePersonal}
+          />
 
-        <Education
-          educationArray={educationArray}
-          handleEducationArray={handleEducationArray}
-        />
+          <Education
+            educationArray={educationArray}
+            handleEducationArray={handleEducationArray}
+          />
 
-        <Work workArray={workArray} handleWorkArray={handleWorkArray} />
-      </div>
+          <Work workArray={workArray} handleWorkArray={handleWorkArray} />
+        </section>
 
-      <div className="display-lists">
-        <PersonalList personalData={personalData} />
-        <EducationList educationArray={educationArray} />
-        <WorkList workArray={workArray} />
-      </div>
+        <section className="display-lists">
+          <PersonalList personalData={personalData} />
+          <EducationList educationArray={educationArray} />
+          <WorkList workArray={workArray} />
+        </section>
+      </main>
+      <footer>
+        <div class="author">
+          <p>
+            Created by <b>Matheus Augusto</b>. Source and photo credits on my{" "}
+            <a
+              href="https://github.com/4whatspc3"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+            .
+          </p>
+        </div>
+      </footer>
     </>
   );
 }
