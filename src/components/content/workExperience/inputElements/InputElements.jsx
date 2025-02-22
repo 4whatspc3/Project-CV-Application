@@ -70,7 +70,7 @@ const LocationInput = ({ value, handleChange }) => {
         name="location"
         id="location"
         type="text"
-        placeholder="DD/MM/YYYY"
+        placeholder="City, Country"
         value={value}
         onChange={handleChange}
       />
