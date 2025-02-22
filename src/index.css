@@ -28,3 +28,24 @@ li {
 li:before {
     content: "\200B";
 }
+
+.pattern {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #e5e5f7;
+    opacity: 0;
+    background-image:  linear-gradient(#000000 1px, transparent 1px), linear-gradient(to right, #000000 1px, #e5e5f7 1px);
+    background-size: 20px 20px;
+    z-index: -1;
+    animation: 5s show-and-hide infinite alternate ease-in-out;
+}
+
+@keyframes show-and-hide {
+    0% { 
+        opacity: 0; 
+    }
+    100% { 
+        opacity: 0.3; 
+    }
+}

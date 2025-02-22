@@ -63,6 +63,7 @@ function App() {
 
   return (
     <>
+      <div class="pattern"></div>
       <header>
         <h1>CV/Resume Generator</h1>
       </header>
